@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import PropTypes from 'prop-types'
+import { BrowserRouter } from 'react-router-dom'
+import { connect } from 'react-redux'
+import { ThemeProvider } from 'styled-components'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import Routes from 'router'
+import GlobalStyle from 'styles/GlobalStyle'
+import 'App.css'
+
+const App = ({ theme }) => (
+  <ThemeProvider theme={theme}>
+    <GlobalStyle />
+    <BrowserRouter>
+      <Routes />
+    </BrowserRouter>
+  </ThemeProvider>
+)
+
+App.propTypes = {
+  theme: PropTypes.object.isRequired,
 }
 
-export default App;
+const mapStateToProps = (state) => ({
+  theme: state.styles.theme,
+})
+
+export default connect(mapStateToProps, null)(App)

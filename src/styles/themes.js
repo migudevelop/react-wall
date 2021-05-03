@@ -12,8 +12,8 @@ export const DARK_THEME = {
 
 export const LIGHT_THEME = {
   name: 'light',
+  backgroundColor: '#1e4e5f',
   primaryColor: '#7ecfe0',
-  backgroundColor: '#fff3f3',
   textColor: '#444444',
   buttonTextColor: '#ffffff',
   displayBgColor: '#ffffff',
