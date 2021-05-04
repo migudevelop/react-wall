@@ -8,6 +8,7 @@ export const DARK_THEME = {
   displayTextColor: '#252a48',
   themeSwitchBg: '#ffffff',
   themeSwitchCircleBg: '#252a48',
+  backgorundContainers: '#ffffff',
 }
 
 export const LIGHT_THEME = {
@@ -22,4 +23,5 @@ export const LIGHT_THEME = {
   navBarActiveTextColor: '#1e4e5f',
   themeSwitchBg: '#1e4e5f',
   themeSwitchCircleBg: '#ffffff',
+  backgorundContainers: '#ffffff',
 }

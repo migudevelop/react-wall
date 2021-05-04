@@ -62,11 +62,11 @@ const SideBar = ({
           )}
           {!isAuth && (
             <>
-              <SideBarLink onClick={() => handleGoTo(ROUTES_LINKS.USER)}>
+              <SideBarLink onClick={() => handleGoTo(ROUTES_LINKS.LOGIN)}>
                 <FaSignInAlt />
                 Login
               </SideBarLink>
-              <SideBarLink onClick={() => handleGoTo(ROUTES_LINKS.USER)}>
+              <SideBarLink onClick={() => handleGoTo(ROUTES_LINKS.REGISTER)}>
                 <FaUserPlus />
                 Register
               </SideBarLink>

@@ -59,11 +59,11 @@ const NavBar = ({ isAuth, canGoBack, toogleOpenNavbar, toogleTheme }) => {
         )}
         {!isAuth && (
           <>
-            <NavLink to={ROUTES_LINKS.HOME} activeStyle={true}>
+            <NavLink to={ROUTES_LINKS.LOGIN} activeStyle={true}>
               <FaSignInAlt />
               Login
             </NavLink>
-            <NavLink to={ROUTES_LINKS.HOME} activeStyle={true}>
+            <NavLink to={ROUTES_LINKS.REGISTER} activeStyle={true}>
               <FaUserPlus />
               Register
             </NavLink>

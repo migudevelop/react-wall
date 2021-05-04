@@ -1,5 +1,15 @@
+import FullPageLoader from 'components/FullPageLoader'
+import Layout from 'components/Layout'
+import { SectionStyled } from './styles'
+
 const Register = () => {
-  return <h1>Register Page</h1>
+  return (
+    <Layout>
+      <SectionStyled>
+        <FullPageLoader />
+      </SectionStyled>
+    </Layout>
+  )
 }
 
 export default Register

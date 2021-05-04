@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { Route, Switch } from 'react-router-dom'
 import PrivateRoute from './privateRoute'
 import { ROUTES_LINKS } from './constants'
+import FullPageLoader from 'components/FullPageLoader'
 
 const LoginPage = lazy(() => import('pages/Login'))
 const RegisterPage = lazy(() => import('pages/Register'))
@@ -11,7 +12,7 @@ const UsersPage = lazy(() => import('pages/Users'))
 const HomePage = lazy(() => import('pages/Home'))
 
 const Routes = ({ isAuth }) => (
-  <Suspense fallback={<span>Loading...</span>}>
+  <Suspense fallback={<FullPageLoader />}>
     <Switch>
       <Route exact path={ROUTES_LINKS.LOGIN} component={LoginPage} />
       <Route exact path={ROUTES_LINKS.REGISTER} component={RegisterPage} />
