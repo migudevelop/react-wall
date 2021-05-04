@@ -1,0 +1,13 @@
+@font-face {
+  font-family: 'Poppins';
+  src: url('assets/fonts/Poppins-Regular.ttf') format('truetype');
+  font-style: normal;
+  font-display: auto;
+}
+
+@font-face {
+  font-family: 'PoppinsBold';
+  src: url('assets/fonts/Poppins-Bold.ttf') format('truetype');
+  font-style: normal;
+  font-display: auto;
+}

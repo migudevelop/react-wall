@@ -1,5 +1,18 @@
+import Layout from 'components/Layout'
+import NavBar from 'components/NavBar'
+import SideBar from 'components/SideBar'
+import { SectionStyled } from './styles'
+
 const Login = () => {
-  return <h1>{process.env.REACT_APP_API_BASEURL}</h1>
+  return (
+    <Layout>
+      <SideBar />
+      <NavBar />
+      <SectionStyled>
+        <div>LoginPage</div>
+      </SectionStyled>
+    </Layout>
+  )
 }
 
 export default Login

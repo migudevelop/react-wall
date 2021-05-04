@@ -1,0 +1,1 @@
+export const TOOGLE_OPEN_NAVBAR = 'TOOGLE_OPEN_NAVBAR'
