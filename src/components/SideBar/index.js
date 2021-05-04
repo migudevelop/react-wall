@@ -1,7 +1,7 @@
 import { memo } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
-// import { useHistory } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 import { ROUTES_LINKS } from 'router/constants'
 
 import { toogleOpenNavbar } from 'redux/actions/appActions'
@@ -14,6 +14,13 @@ import {
   SideBarMenu,
   SideBarLink,
 } from './styles'
+import {
+  FaHome,
+  FaUser,
+  FaSignOutAlt,
+  FaSignInAlt,
+  FaUserPlus,
+} from 'react-icons/fa'
 
 const SideBar = ({
   isAuth,
@@ -22,9 +29,13 @@ const SideBar = ({
   toogleOpenNavbar,
   toogleTheme,
 }) => {
-  // const history = useHistory()
+  const history = useHistory()
 
   // const handleBackClick = () => history.goBack()
+  const handleGoTo = (route) => {
+    toogleOpenNavbar()
+    history.push(route)
+  }
 
   return (
     <SideBarContainerStyled isOpen={isOpen}>
@@ -33,8 +44,34 @@ const SideBar = ({
       </IconStyled>
       <SideBarWrapper>
         <SideBarMenu>
-          <SideBarLink to={ROUTES_LINKS.HOME}>Home</SideBarLink>
-          <SideBarLink to={ROUTES_LINKS.USER}>User</SideBarLink>
+          {isAuth && (
+            <>
+              <SideBarLink onClick={() => handleGoTo(ROUTES_LINKS.HOME)}>
+                <FaHome />
+                Home
+              </SideBarLink>
+              <SideBarLink onClick={() => handleGoTo(ROUTES_LINKS.USER)}>
+                <FaUser />
+                User
+              </SideBarLink>
+              <SideBarLink onClick={() => handleGoTo(ROUTES_LINKS.USER)}>
+                <FaSignOutAlt />
+                Logout
+              </SideBarLink>
+            </>
+          )}
+          {!isAuth && (
+            <>
+              <SideBarLink onClick={() => handleGoTo(ROUTES_LINKS.USER)}>
+                <FaSignInAlt />
+                Login
+              </SideBarLink>
+              <SideBarLink onClick={() => handleGoTo(ROUTES_LINKS.USER)}>
+                <FaUserPlus />
+                Register
+              </SideBarLink>
+            </>
+          )}
         </SideBarMenu>
       </SideBarWrapper>
     </SideBarContainerStyled>

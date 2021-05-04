@@ -61,4 +61,7 @@ export const SideBarLink = styled(Link)`
     color: ${({ theme }) => theme.navBarActiveTextColor};
     transition: 0.2s ease-in-out;
   }
+  svg {
+    padding: 0 0.5rem;
+  }
 `

@@ -3,17 +3,25 @@ import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 // import { useHistory } from 'react-router-dom'
 
+import { ROUTES_LINKS } from 'router/constants'
 import { toogleOpenNavbar } from 'redux/actions/appActions'
 import { toogleTheme } from 'redux/actions/stylesActions'
 import {
   NavStyled,
   Logo,
-  NavGroup,
   NavLink,
   MobileIcon,
   NavMenu,
+  NavRightMenu,
 } from './styles'
-import { FaBars } from 'react-icons/fa'
+import {
+  FaBars,
+  FaHome,
+  FaUser,
+  FaSignOutAlt,
+  FaSignInAlt,
+  FaUserPlus,
+} from 'react-icons/fa'
 
 const NavBar = ({ isAuth, canGoBack, toogleOpenNavbar, toogleTheme }) => {
   // const history = useHistory()
@@ -22,22 +30,46 @@ const NavBar = ({ isAuth, canGoBack, toogleOpenNavbar, toogleTheme }) => {
 
   return (
     <NavStyled>
-      <NavLink to="/">
+      <NavLink to={ROUTES_LINKS.HOME}>
         <Logo />
       </NavLink>
       <MobileIcon onClick={toogleOpenNavbar}>
         <FaBars />
       </MobileIcon>
-      <NavMenu>
-        <NavGroup>
-          <NavLink to="/" activeStyle>
-            Home
+      {isAuth && (
+        <>
+          <NavMenu>
+            <NavLink to={ROUTES_LINKS.HOME} activeStyle={true}>
+              <FaHome />
+              Home
+            </NavLink>
+            <NavLink to={ROUTES_LINKS.USER} activeStyle={true}>
+              <FaUser />
+              User
+            </NavLink>
+          </NavMenu>
+        </>
+      )}
+      <NavRightMenu>
+        {isAuth && (
+          <NavLink to={ROUTES_LINKS.HOME} activeStyle={true}>
+            <FaSignOutAlt />
+            Logout
           </NavLink>
-          <NavLink to="/detail" activeStyle={true}>
-            Detail
-          </NavLink>
-        </NavGroup>
-      </NavMenu>
+        )}
+        {!isAuth && (
+          <>
+            <NavLink to={ROUTES_LINKS.HOME} activeStyle={true}>
+              <FaSignInAlt />
+              Login
+            </NavLink>
+            <NavLink to={ROUTES_LINKS.HOME} activeStyle={true}>
+              <FaUserPlus />
+              Register
+            </NavLink>
+          </>
+        )}
+      </NavRightMenu>
     </NavStyled>
   )
 }

@@ -7,13 +7,11 @@ export const NavStyled = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-family: 'Poppins';
   width: 100%;
   height: 50px;
   position: fixed;
   top: 0;
   background: ${({ theme }) => theme.navBarBgColor};
-  // padding: 0.5rem calc((100vw - 1000px) / 2);
   padding: 10px 0;
   z-index: 1;
   backdrop-filter: blur(3px);
@@ -35,6 +33,9 @@ export const NavLink = styled(Link)`
   cursor: pointer;
   &.active {
     color: ${({ theme }) => theme.navBarActiveTextColor};
+  }
+  svg {
+    padding: 0 0.5rem;
   }
 `
 
@@ -65,7 +66,15 @@ export const NavMenu = styled.div`
     display: flex;
     align-items: center;
     color: ${({ theme }) => theme.navBarTextColor};
-    width: 100vw;
     justify-content: center;
+  }
+`
+
+export const NavRightMenu = styled(NavMenu)`
+  ${MEDIAQUERIES.tablet} {
+    display: flex;
+    align-items: center;
+    color: ${({ theme }) => theme.navBarTextColor};
+    justify-content: flex-end;
   }
 `
