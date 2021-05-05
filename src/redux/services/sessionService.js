@@ -1,17 +1,7 @@
+import { postRequest } from 'commons/httpRequestUtils'
+
 export const loginService = ({ email, password }) =>
-  fetch(`${process.env.REACT_APP_API_BASEURL}/login`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({ email, password }),
-  }).then((res) => res.json())
+  postRequest({ endpoint: '/login', body: { email, password } })
 
 export const registerService = ({ email, password }) =>
-  fetch(`${process.env.REACT_APP_API_BASEURL}/register`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({ email, password }),
-  }).then((res) => res.json())
+  postRequest({ endpoint: '/register', body: { email, password } })

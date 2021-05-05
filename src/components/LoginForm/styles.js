@@ -9,6 +9,8 @@ export const Wrapper = styled.div`
   background: ${({ theme }) => theme.backgorundContainers};
   width: 70vw;
   min-height: 350px;
+  border-radius: 0.5rem;
+  box-shadow: 0px 10px 13px -7px black;
 
   ${MEDIAQUERIES.tablet} {
     width: 40vw;

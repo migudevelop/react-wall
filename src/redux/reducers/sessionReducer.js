@@ -11,19 +11,19 @@ import {
 
 export const sessionStorageTokenKey = 'token'
 
-// const oldToken = window.sessionStorage.getItem(sessionStorageTokenKey)
-// export const INITIAL_STATE = {
-//   loading: false,
-//   isAuth: Boolean(oldToken) || false,
-//   token: oldToken,
-//   error: null,
-// }
+const oldToken = window.sessionStorage.getItem(sessionStorageTokenKey)
 export const INITIAL_STATE = {
   loading: false,
-  isAuth: false,
-  token: '',
+  isAuth: Boolean(oldToken) || false,
+  token: oldToken,
   error: null,
 }
+// export const INITIAL_STATE = {
+//   loading: false,
+//   isAuth: false,
+//   token: '',
+//   error: null,
+// }
 
 const sessionReducer = (state = INITIAL_STATE, action) => {
   const { type, payload } = action

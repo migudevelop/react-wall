@@ -1,12 +1,18 @@
 import FormInput from 'components/FormInput'
 import { memo } from 'react'
 import { connect } from 'react-redux'
-// import PropTypes from 'prop-types'
+import PropTypes from 'prop-types'
 import { useForm } from 'react-hook-form'
+import { ROUTES_LINKS } from 'router/constants'
+import { useHistory } from 'react-router-dom'
 
+import { userLogin, clearError } from 'redux/actions/sessionActions'
+import Preload from 'components/Preload'
+import StatusMessage from 'components/StatusMessage'
 import { Wrapper, Title, ButtonStyled } from './styles'
 
-const LoginForm = () => {
+const LoginForm = ({ userLogin, isSubmitting, loginError, clearError }) => {
+  const history = useHistory()
   const {
     register,
     handleSubmit,
@@ -14,8 +20,7 @@ const LoginForm = () => {
   } = useForm()
 
   const onSubmit = ({ email, password }) => {
-    // userLogin({ email, password }).then(() => history.push('/users'))
-    console.log('aaa')
+    userLogin({ email, password }).then(() => history.push(ROUTES_LINKS.HOME))
   }
 
   const { email: emailError, password: passwordError } = errors
@@ -50,15 +55,19 @@ const LoginForm = () => {
         />
         <ButtonStyled stretch>Login</ButtonStyled>
       </form>
+      {isSubmitting && <Preload message="Checking your credentials..." />}
+      {loginError && (
+        <StatusMessage type="error" message={loginError} onClear={clearError} />
+      )}
     </Wrapper>
   )
 }
 
 LoginForm.propTypes = {
-  // userLogin: PropTypes.func.isRequired,
-  // isSubmitting: PropTypes.bool.isRequired,
-  // loginError: PropTypes.string,
-  // clearError: PropTypes.func.isRequired,
+  userLogin: PropTypes.func.isRequired,
+  isSubmitting: PropTypes.bool.isRequired,
+  loginError: PropTypes.string,
+  clearError: PropTypes.func.isRequired,
 }
 
 const mapStateToProps = (state) => ({
@@ -67,8 +76,8 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  // userLogin: (user) => dispatch(userLogin(user)),
-  // clearError: (user) => dispatch(clearError(user)),
+  userLogin: (user) => dispatch(userLogin(user)),
+  clearError: (user) => dispatch(clearError(user)),
 })
 
 const LoginFormConnected = connect(

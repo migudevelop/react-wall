@@ -22,6 +22,7 @@ module.exports = {
   rules: {
     'react/react-in-jsx-scope': RULES.OFF,
     'no-prototype-builtins': RULES.OFF,
+    'one-var': RULES.OFF,
   },
   overrides: [
     {
