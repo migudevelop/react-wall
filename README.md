@@ -1,70 +1,70 @@
-# Getting Started with Create React App
+# 🚀 Wall Project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Me he centrado en desarrollar siguiendo las prácticas que suelo utilizar en mi día a día e intentando extender en la medida que el tiempo me lo ha permitido las funcionalidades establecidas en el documento. He intentado implementar de la manera más correcta la lógica interna del problema propuesto, con la estructura de carpetas que normalmente uso para proyectos de React, como por ejemplo la separación de componentes y de páginas.
 
-## Available Scripts
+Como añadido a las funcionalidades propuestas se ha implementado un formulario de registro que permite _crear_ un nuevo usuario. La API no permite crear nuevos usuarios, pero sí permite registrar emails que ya existan en la base de datos, devolviendo un token que permite autorizar al usuario mientras usa la aplicación.
 
-In the project directory, you can run:
+La carga de las páginas se ha hecho mediante _lazy load_ permitiendo mostrar una precarga sencilla para mejorar la experiencia del usuario. Todas las imágenes usadas estan en formato SVG lo que permite estilarlas desde el código y optimizar su carga.
 
-### `yarn start`
+Para el desarrollo se ha usado la rama _develop_ y al finalizar se mergeó la rama _master_ con todos los cambios. El historial de _git_ está más o menos estructurado por las fases del desarrollo dejando en cada _commit_ una versión estable.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Instalación
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Para clonar este repositorío necesitarás tener instalado en el ordenador [Git](https://git-scm.com/) y [Node.js](https://nodejs.org/en/download/) el cual ya viene con _npm_ instalado. Aparte de _npm_ también puedes gestionar las dependencias con [yarn](https://classic.yarnpkg.com/en/docs/install/#windows-stable). Una vez tengas estas aplicaciones abre un terminal y sigue las instrucciones de abajo:
 
-### `yarn test`
+```
+# Clonar este repositorio
+git clone https://github.com/migudevelop/react-wall.git
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# Instalar las dependencias (yarn o npm)
+yarn
+npm i
 
-### `yarn build`
+# Levantar el proyecto
+yarn start
+npm start
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Usuario de pruebas
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Para poder hacer login/registro es necesario usar un email de prueba. La contraseña que se introduzca no importa ni para hacer login ni para registrarse. El email que se debe usar es **eve.holt@reqres.in**.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Formato del código
 
-### `yarn eject`
+Para asegurar la calidad del codigo y evitar errores se ha hecho uso de las librerías **ESLint** y **Prettier**, configurandolas de manera optima para su uso con React. También se ha instalado **Lint Staged** y **Husky** para poder lanzar scripts antes de poder subir commits al repositorio, en este caso se ejecutará ESLint y Prettier en los archivos que vayamos a subir al repositorio para comprobar que todo esta correcto. Tambien se ha instalado **Commitlint** para comprobar el mensage agregado al commit ya que deven estar con los estandares de convencional commit.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Scripts
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Se han añadido varios scripts para facilitar el desarrollo:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- _lint_: ejecuta ESLint y arregla posibles errores
+- _prettify_: ejecuta Prettier y formatea el código del proyecto
+- _prettier:check_: ejecuta Prettier e informa de los archivos que no tienen un formato correcto
+- _test_: ejecuta los test del proyecto y termina la ejecución (usado por Husky)
+- _test:watch_: ejecuta los test del proyecto y mantiene un _watcher_ para volver a ejecutarlos cuando detecte un cambio (usado para desarrollar)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Redux
 
-## Learn More
+Para el uso de Redux se ha añadido el middleware **Redux Thunk** que permite despachar acciones asíncronas como llamar a una API y actualizar el estado.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Estilos
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+El estilado gráfico del proyecto se ha realizado con **Styled Components**, obviando introducir un preprocesador (SASS/LESS) ya que sería mezclar dos conceptos diferentes. Se han establecido 3 breackpoints para que la aplicación sea _responsive_ y se pueda visualizar correctamente tanto en dispositivos móviles (teléfonos y tabletas) como en navegadores de escritorio con la filosofía **mobile-first**. Para la inyección de estilos globales se ha usado _createGlobalStyle_ de **Styled Components** pero para inyectar las fuentes se ha usado _App.css_ porque si no las fuentes son inyectadas en cada _render_.
 
-### Code Splitting
+## Temas
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Se ha añadido la funcionalidad que permita al usuario cambiar de tema, aplicándole a la UI un aspecto diferente y de esta forma darle un valor añadido al proyecto. Para cambiar de tema hay que hacer clic en el logo de la barra de navegación y hay dos disponibles: _dark_ y _light_.
 
-### Analyzing the Bundle Size
+## Formularios
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Para la gestión de formularios ya que son sencillos se ha usado **React Hook Form** dado que es más ligera que **Formik**.
 
-### Making a Progressive Web App
+## Testing
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-### Advanced Configuration
+## Librerias usadas
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Hay varias librerías que se han instalado para dar características extra al proyecto:
 
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- prop-types: evita errores a la hora de programar y asegura la consistencia del código
+- redux-devtools-extension: permite ver de forma amigable el contexto de Redux de la aplicación en el _devtools_ del navegador

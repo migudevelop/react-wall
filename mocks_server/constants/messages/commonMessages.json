@@ -1,0 +1,11 @@
+{
+  "UNAUTHORIZED_REQUEST": "The request does not have the authorization header",
+  "FAILED_REQUEST": "The request failed, please try again later",
+  "NOT_VALID_TOKEN": "This token isn't valid",
+  "TOKEN_EXPIRED": "This token has expired",
+  "NOT_UPLOADED_FILE": "Not uploaded file",
+  "NOT_VALID_EXTENSION": "Not uploaded file, not valid file extensión",
+  "FILE_NOT_EXISTS": "This file doesn't exists",
+  "NO_DATA": "There is no data with those search.",
+  "INCORRET_DATA_VALIDATION": "Data validation is incorrect, please try again."
+}
