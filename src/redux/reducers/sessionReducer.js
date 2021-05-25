@@ -8,6 +8,7 @@ import {
   SESSION_REGISTER_ERROR,
   SESSION_CLEAR_ERROR,
 } from 'redux/types/sessionTypes'
+import { decode } from 'jsonwebtoken'
 
 export const sessionStorageTokenKey = 'token'
 
@@ -15,15 +16,9 @@ const oldToken = window.sessionStorage.getItem(sessionStorageTokenKey)
 export const INITIAL_STATE = {
   loading: false,
   isAuth: Boolean(oldToken) || false,
-  token: oldToken,
+  user: decode(oldToken) || null,
   error: null,
 }
-// export const INITIAL_STATE = {
-//   loading: false,
-//   isAuth: false,
-//   token: '',
-//   error: null,
-// }
 
 const sessionReducer = (state = INITIAL_STATE, action) => {
   const { type, payload } = action

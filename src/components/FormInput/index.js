@@ -13,6 +13,7 @@ const FormInput = ({
   register,
   validation,
   error,
+  defaultValue,
 }) => (
   <FormGroup>
     {label && <LabelStyled htmlFor={name}>{label}</LabelStyled>}
@@ -21,6 +22,7 @@ const FormInput = ({
       {...register(name, validation)}
       placeholder={placeholder}
       autoFocus={autoFocus}
+      defaultValue={defaultValue}
     />
     <FormValidationError name={name} error={error} />
   </FormGroup>
@@ -35,6 +37,7 @@ FormInput.propTypes = {
   register: PropTypes.func.isRequired,
   validation: PropTypes.object,
   error: PropTypes.object,
+  defaultValue: PropTypes.string,
 }
 
 FormInput.defaultProps = {
@@ -44,6 +47,7 @@ FormInput.defaultProps = {
   autoFocus: false,
   validation: {},
   error: {},
+  defaultValue: '',
 }
 
 export default memo(FormInput)

@@ -2,6 +2,7 @@ import { HTTP_REQUEST_METHODS } from './constants'
 
 const DEFOULT_HEADERS = {
   'Content-Type': 'application/json',
+  Authorization: window.sessionStorage.getItem('token'),
 }
 
 export const getRequest = ({ endpoint = '' }) =>

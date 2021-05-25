@@ -25,13 +25,13 @@ const controller = {
     if (userLogin == null || Object.keys(userLogin).length <= 0)
       return res.status(200).send({
         message: `${
-          MESSAGES.INCORRECT_DATA
-        } or ${MESSAGES.USER_NOT_EXIST.toLowerCase()}`,
+          MESSAGES.USER_NOT_EXIST
+        } or ${MESSAGES.INCORRECT_DATA.toLowerCase()}`,
       })
 
     return res
       .status(200)
-      .send({ success: true, user: users.getUserLoginObject(userLogin) })
+      .send({ success: true, ...users.getUserLoginObject(userLogin) })
   },
 }
 

@@ -51,9 +51,10 @@ export const userLogin = (user) => (dispatch) =>
     dispatch(sessionCheckingLogin())
     loginService(user)
       .then((result) => {
-        if (result.hasOwnProperty('error')) {
-          dispatch(sessionLoginError(result.error))
-          reject(result.error)
+        console.log(result)
+        if (!result.hasOwnProperty('success')) {
+          dispatch(sessionLoginError(result.message))
+          reject(result.message)
         } else {
           dispatch(sessionLoginSuccess(result.token))
           window.sessionStorage.setItem(sessionStorageTokenKey, result.token)

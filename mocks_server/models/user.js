@@ -15,6 +15,6 @@ module.exports = class Users {
 
   getUserLoginObject = (userLogin) => {
     delete userLogin.login
-    return { ...userLogin, token: jwt.tokenGeneration(userLogin) }
+    return { user: userLogin, token: jwt.tokenGeneration(userLogin) }
   }
 }

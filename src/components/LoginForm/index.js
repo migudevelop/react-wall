@@ -36,6 +36,7 @@ const LoginForm = ({ userLogin, isSubmitting, loginError, clearError }) => {
           label="E-Mail"
           placeholder="Enter your email..."
           register={register}
+          defaultValue="virginia.hernandez@example.com"
           validation={{
             required: true,
             pattern: {
@@ -49,6 +50,7 @@ const LoginForm = ({ userLogin, isSubmitting, loginError, clearError }) => {
           type="password"
           label="Password"
           placeholder="Enter your password..."
+          defaultValue="62jqrQ2K"
           register={register}
           validation={{ required: true, minLength: 8 }}
           error={passwordError}

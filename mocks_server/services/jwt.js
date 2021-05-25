@@ -1,13 +1,14 @@
 const jwt = require('jsonwebtoken')
-const CONFIG = require('../configs/configToken.json')
+
+const TOKEN_KEY = 'WAL123456'
 
 exports.tokenGeneration = (user) =>
-  jwt.sign(user, CONFIG.KEY, { expiresIn: '3h' })
+  jwt.sign(user, TOKEN_KEY, { expiresIn: '3h' })
 
 /** verifica al usuario a partir del token  */
 exports.verify = (token) => {
   try {
-    return jwt.verify(token, CONFIG.KEY)
+    return jwt.verify(token, TOKEN_KEY)
   } catch (err) {
     return false
   }

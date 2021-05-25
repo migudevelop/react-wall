@@ -5,6 +5,7 @@ const app = express()
 const port = process.env.PORT || '3005'
 
 const userRoutes = require('./routes/user')
+const postsRoutes = require('./routes/posts')
 
 app.use(express.urlencoded({ extended: false }))
 app.use(express.json())
@@ -23,5 +24,6 @@ app.use((req, res, next) => {
 
 //Add /api in start
 app.use('/api', userRoutes)
+app.use('/api', postsRoutes)
 
 app.listen(port, () => console.log(`Conected in port: ${port}`))
