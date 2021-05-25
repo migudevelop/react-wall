@@ -1,4 +1,5 @@
 import FormInput from 'components/FormInput'
+import PasswordInput from 'components/PasswordInput'
 import { memo } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
@@ -44,9 +45,8 @@ const LoginForm = ({ userLogin, isSubmitting, loginError, clearError }) => {
           }}
           error={emailError}
         />
-        <FormInput
+        <PasswordInput
           name="password"
-          type="password"
           label="Password"
           placeholder="Enter your password..."
           register={register}
