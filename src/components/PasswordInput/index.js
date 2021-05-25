@@ -20,6 +20,7 @@ const PasswordInput = ({
   register,
   validation,
   error,
+  defaultValue,
 }) => {
   const [type, setType] = useState(PASSWORD_TYPE)
   const toggleShowPassword = () =>
@@ -33,6 +34,7 @@ const PasswordInput = ({
           {...register(name, validation)}
           placeholder={placeholder}
           autoFocus={autoFocus}
+          defaultValue={defaultValue}
         />
         {type === PASSWORD_TYPE ? (
           <FaEye onClick={toggleShowPassword} />
@@ -53,6 +55,7 @@ PasswordInput.propTypes = {
   register: PropTypes.func.isRequired,
   validation: PropTypes.object,
   error: PropTypes.object,
+  defaultValue: PropTypes.string,
 }
 
 PasswordInput.defaultProps = {
@@ -61,6 +64,7 @@ PasswordInput.defaultProps = {
   autoFocus: false,
   validation: {},
   error: {},
+  defaultValue: '',
 }
 
 export default memo(PasswordInput)

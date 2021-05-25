@@ -1,123 +1,96 @@
 {
   "results": [
     {
-      "id": 1,
-      "name": { "title": "Miss", "first": "Virginia", "last": "Hernandez" },
+      "id": "6306b60c-4551-437a-993a-3552375dc1b3",
+      "registerDate": "2021-05-24T19:07:05.708Z",
+      "dateOfBirth": "1991-06-24T19:07:05.708Z",
+      "name": { "first": "Virginia", "last": "Hernandez" },
       "location": {
         "street": { "number": 2449, "name": "Avenida de Burgos" },
         "city": "San Sebastián de Los Reyes",
         "state": "Castilla la Mancha",
         "country": "Spain",
-        "postcode": 35827,
-        "coordinates": { "latitude": "-25.9948", "longitude": "179.2268" },
-        "timezone": { "offset": "+4:30", "description": "Kabul" }
+        "postcode": 35827
       },
       "email": "virginia.hernandez@example.com",
       "login": {
-        "uuid": "b7af2912-a27b-4071-a9ee-9ab4d2f6818c",
-        "password": "62jqrQ2K",
-        "salt": "PjCSdDfj",
-        "sha256": "1a37bae4e3fe0cbbc19a840a8355bbd0f766bb29663c70efbaabe1139df6f194"
+        "password": "62jqrQ2K"
       },
       "phone": "967-994-091",
       "picture": "https://randomuser.me/api/portraits/women/65.jpg"
     },
     {
-      "id": 2,
-      "name": { "title": "Mrs", "first": "Aléxia", "last": "Cardoso" },
+      "id": "4cac8c40-f15d-4874-be21-d560adfa4315",
+      "registerDate": "2021-05-24T19:07:05.708Z",
+      "dateOfBirth": "1991-07-24T19:07:05.708Z",
+      "name": { "first": "Aléxia", "last": "Cardoso" },
       "location": {
         "street": { "number": 8625, "name": "Rua João Xxiii" },
         "city": "Franca",
         "state": "Bahia",
         "country": "Brazil",
-        "postcode": 69346,
-        "coordinates": { "latitude": "45.3782", "longitude": "176.4410" },
-        "timezone": {
-          "offset": "-5:00",
-          "description": "Eastern Time (US & Canada), Bogota, Lima"
-        }
+        "postcode": 69346
       },
       "email": "alexia.cardoso@example.com",
       "login": {
-        "uuid": "b0980537-f52b-4034-b602-c8b2e6e4c481",
-        "password": "2RvQfG05",
-        "salt": "yalUFSl4",
-        "sha256": "a8bcbe168e547ed5e375b8235fe9832675e1744018b8106b129c56253e31b34e"
+        "password": "2RvQfG05"
       },
       "phone": "(75) 8755-1267",
       "picture": "https://randomuser.me/api/portraits/women/16.jpg"
     },
     {
-      "id": 3,
-      "name": { "title": "Mr", "first": "Benjamin", "last": "Clarke" },
+      "id": "f6f17853-4990-4705-a2e6-69ead3d3a24a",
+      "registerDate": "2021-05-24T19:07:05.708Z",
+      "dateOfBirth": "1991-07-10T19:07:05.708Z",
+      "name": { "first": "Benjamin", "last": "Clarke" },
       "location": {
         "street": { "number": 7261, "name": "North Street" },
         "city": "Hastings",
         "state": "Marlborough",
         "country": "New Zealand",
-        "postcode": 48484,
-        "coordinates": { "latitude": "-59.8615", "longitude": "57.3867" },
-        "timezone": {
-          "offset": "+7:00",
-          "description": "Bangkok, Hanoi, Jakarta"
-        }
+        "postcode": 48484
       },
       "email": "benjamin.clarke@example.com",
       "login": {
-        "uuid": "b7a49518-e2a2-4e24-a254-f7e78816ff7a",
-        "password": "ttMEIzye",
-        "salt": "PNXzDiX8",
-        "sha256": "afdf88e6f3ab87dfa0315a8a836e46e4f5ba43da32ec3742e0a698f70e547bfc"
+        "password": "ttMEIzye"
       },
       "phone": "(107)-563-5350",
       "picture": "https://randomuser.me/api/portraits/men/68.jpg"
     },
     {
-      "id": 4,
-      "name": { "title": "Mr", "first": "Zerá", "last": "da Paz" },
+      "id": "29927524-40b6-4d55-bb02-3a53d505e99f",
+      "registerDate": "2021-05-24T19:07:05.708Z",
+      "dateOfBirth": "1994-06-24T19:07:05.708Z",
+      "name": { "first": "Zerá", "last": "da Paz" },
       "location": {
         "street": { "number": 5144, "name": "Rua Principal" },
         "city": "Piracicaba",
         "state": "Amazonas",
         "country": "Brazil",
-        "postcode": 67321,
-        "coordinates": { "latitude": "-27.5442", "longitude": "-154.5128" },
-        "timezone": {
-          "offset": "+4:00",
-          "description": "Abu Dhabi, Muscat, Baku, Tbilisi"
-        }
+        "postcode": 67321
       },
       "email": "zera.dapaz@example.com",
       "login": {
-        "uuid": "def849f9-73aa-4c67-acfc-bb312dc76f2c",
-        "password": "Y5SBreru",
-        "salt": "yRp1UHDQ",
-        "sha256": "03025ff36f89925e6f6fe5e6d7b4b10aba0519afb351bd076a13da4a7a2ae1ee"
+        "password": "Y5SBreru"
       },
       "phone": "(28) 4023-1323",
       "picture": "https://randomuser.me/api/portraits/men/27.jpg"
     },
     {
-      "id": 5,
-      "name": { "title": "Mr", "first": "Shaun", "last": "Thompson" },
+      "id": "c0642df2-cab0-4044-9929-294a9c9e9482",
+      "registerDate": "2021-05-24T19:07:05.708Z",
+      "dateOfBirth": "1991-06-24T19:07:05.708Z",
+      "name": { "first": "Shaun", "last": "Thompson" },
       "location": {
         "street": { "number": 1304, "name": "Highfield Road" },
         "city": "Sunderland",
         "state": "Bedfordshire",
         "country": "United Kingdom",
-        "postcode": "F1 0GW",
-        "coordinates": { "latitude": "-57.8395", "longitude": "-168.4606" },
-        "timezone": {
-          "offset": "+5:00",
-          "description": "Ekaterinburg, Islamabad, Karachi, Tashkent"
-        }
+        "postcode": "F1 0GW"
       },
       "email": "shaun.thompson@example.com",
       "login": {
-        "uuid": "a1b80542-9978-470e-bbf7-4f63d3bc1c26",
-        "password": "uJc4wZ2J",
-        "salt": "TYnG2WHg",
-        "sha256": "bbb3f7b3e4846897fe50432d8cda8a4150a03ec97ab29ac54f1170e68f7a834d"
+        "password": "uJc4wZ2J"
       },
       "phone": "019467 66129",
       "picture": "https://randomuser.me/api/portraits/men/31.jpg"

@@ -10,7 +10,7 @@ exports.authenticated = (req, res, next) => {
   let payload = null
   try {
     payload = jwt.verify(token)
-    if (payload.exp <= moment().unix())
+    if (payload.exp <= moment().unix() || !payload)
       return res.status(401).send({ message: MESSAGES.TOKEN_EXPIRED })
   } catch (ex) {
     return res.status(403).send({ message: MESSAGES.NOT_VALID_TOKEN })

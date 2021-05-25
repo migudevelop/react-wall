@@ -8,15 +8,15 @@ import {
   SESSION_REGISTER_ERROR,
   SESSION_CLEAR_ERROR,
 } from 'redux/types/sessionTypes'
-import { decode } from 'jsonwebtoken'
+import { verify } from 'commons/jwtUtils'
 
 export const sessionStorageTokenKey = 'token'
 
-const oldToken = window.sessionStorage.getItem(sessionStorageTokenKey)
+const oldToken = verify(window.sessionStorage.getItem(sessionStorageTokenKey))
 export const INITIAL_STATE = {
   loading: false,
   isAuth: Boolean(oldToken) || false,
-  user: decode(oldToken) || null,
+  user: oldToken || null,
   error: null,
 }
 
