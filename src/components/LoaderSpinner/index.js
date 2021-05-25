@@ -6,8 +6,8 @@ const SMALL_BUTTON = 'small',
   MEDIUM_BUTTON = 'medium',
   LARGE_BUTTON = 'large'
 
-const LoaderSpinner = ({ secondary, size }) => (
-  <Spinner secondary={secondary} fontSize={size} />
+const LoaderSpinner = ({ secondary = false, size }) => (
+  <Spinner $secondary={secondary} fontSize={size} />
 )
 
 LoaderSpinner.propTypes = {

@@ -27,7 +27,7 @@ export const Spinner = styled(FaSpinner)`
         return '7rem;'
     }
   }};
-  color: ${({ theme, secondary }) =>
-    secondary ? theme.secondaryTextColor : theme.primaryTextColor};
+  color: ${({ theme, $secondary }) =>
+    $secondary ? theme.secondaryTextColor : theme.primaryTextColor};
   animation: ${spin} 2s linear infinite;
 `

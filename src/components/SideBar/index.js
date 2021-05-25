@@ -1,7 +1,6 @@
 import { memo } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
-import { useHistory } from 'react-router-dom'
 import { ROUTES_LINKS } from 'router/constants'
 
 import { toogleOpenNavbar } from 'redux/actions/appActions'
@@ -29,14 +28,6 @@ const SideBar = ({
   toogleOpenNavbar,
   toogleTheme,
 }) => {
-  const history = useHistory()
-
-  // const handleBackClick = () => history.goBack()
-  const handleGoTo = (route) => {
-    toogleOpenNavbar()
-    history.push(route)
-  }
-
   return (
     <SideBarContainerStyled isOpen={isOpen}>
       <IconStyled onClick={toogleOpenNavbar}>
@@ -46,15 +37,15 @@ const SideBar = ({
         <SideBarMenu>
           {isAuth && (
             <>
-              <SideBarLink onClick={() => handleGoTo(ROUTES_LINKS.HOME)}>
+              <SideBarLink to={ROUTES_LINKS.HOME}>
                 <FaHome />
                 Home
               </SideBarLink>
-              <SideBarLink onClick={() => handleGoTo(ROUTES_LINKS.USER)}>
+              <SideBarLink to={ROUTES_LINKS.USER}>
                 <FaUser />
                 User
               </SideBarLink>
-              <SideBarLink onClick={() => handleGoTo(ROUTES_LINKS.USER)}>
+              <SideBarLink to={ROUTES_LINKS.USER}>
                 <FaSignOutAlt />
                 Logout
               </SideBarLink>
@@ -62,11 +53,11 @@ const SideBar = ({
           )}
           {!isAuth && (
             <>
-              <SideBarLink onClick={() => handleGoTo(ROUTES_LINKS.LOGIN)}>
+              <SideBarLink to={ROUTES_LINKS.LOGIN}>
                 <FaSignInAlt />
                 Login
               </SideBarLink>
-              <SideBarLink onClick={() => handleGoTo(ROUTES_LINKS.REGISTER)}>
+              <SideBarLink to={ROUTES_LINKS.REGISTER}>
                 <FaUserPlus />
                 Register
               </SideBarLink>

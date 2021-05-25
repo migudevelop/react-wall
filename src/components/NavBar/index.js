@@ -39,11 +39,11 @@ const NavBar = ({ isAuth, canGoBack, toogleOpenNavbar, toogleTheme }) => {
       {isAuth && (
         <>
           <NavMenu>
-            <NavLink to={ROUTES_LINKS.HOME} activeStyle={true}>
+            <NavLink to={ROUTES_LINKS.HOME} activeStyle={{}}>
               <FaHome />
               Home
             </NavLink>
-            <NavLink to={ROUTES_LINKS.USER} activeStyle={true}>
+            <NavLink to={ROUTES_LINKS.USER} activeStyle={{}}>
               <FaUser />
               User
             </NavLink>
@@ -52,18 +52,18 @@ const NavBar = ({ isAuth, canGoBack, toogleOpenNavbar, toogleTheme }) => {
       )}
       <NavRightMenu>
         {isAuth && (
-          <NavLink to={ROUTES_LINKS.HOME} activeStyle={true}>
+          <NavLink to={ROUTES_LINKS.HOME} activeStyle={{}}>
             <FaSignOutAlt />
             Logout
           </NavLink>
         )}
         {!isAuth && (
           <>
-            <NavLink to={ROUTES_LINKS.LOGIN} activeStyle={true}>
+            <NavLink to={ROUTES_LINKS.LOGIN} activeStyle={{}}>
               <FaSignInAlt />
               Login
             </NavLink>
-            <NavLink to={ROUTES_LINKS.REGISTER} activeStyle={true}>
+            <NavLink to={ROUTES_LINKS.REGISTER} activeStyle={{}}>
               <FaUserPlus />
               Register
             </NavLink>

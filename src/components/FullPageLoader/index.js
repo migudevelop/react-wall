@@ -4,7 +4,7 @@ import { FullPageLoaderStyled } from './styles'
 
 const FullPageLoader = () => (
   <FullPageLoaderStyled>
-    <LoaderSpinner />
+    <LoaderSpinner secondary />
   </FullPageLoaderStyled>
 )
 
