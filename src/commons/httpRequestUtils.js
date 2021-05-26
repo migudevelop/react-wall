@@ -6,7 +6,13 @@ const DEFOULT_HEADERS = {
 }
 
 export const getRequest = ({ endpoint = '' }) =>
-  commonHttpRequest({ endpoint }).then((res) => res.json())
+  commonHttpRequest({
+    endpoint,
+    config: {
+      method: HTTP_REQUEST_METHODS.GET,
+      headers: DEFOULT_HEADERS,
+    },
+  }).then((res) => res.json())
 
 export const postRequest = ({ endpoint = '', body = {} }) =>
   commonHttpRequest({

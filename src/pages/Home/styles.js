@@ -8,9 +8,3 @@ export const SectionStyled = styled.section`
   align-items: center;
   color: ${({ theme }) => theme.textColor};
 `
-
-export const PreloadWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  height: 80vh;
-`

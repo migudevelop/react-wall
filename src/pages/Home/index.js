@@ -1,5 +1,17 @@
+import { memo } from 'react'
+
+import Layout from 'components/Layout'
+import { SectionStyled } from './styles'
+import PostsPanel from 'components/PostsPanel'
+
 const Home = () => {
-  return <h1>Home Page</h1>
+  return (
+    <Layout>
+      <SectionStyled>
+        <PostsPanel />
+      </SectionStyled>
+    </Layout>
+  )
 }
 
-export default Home
+export default memo(Home)
