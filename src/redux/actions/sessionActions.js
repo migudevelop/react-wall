@@ -51,7 +51,6 @@ export const userLogin = (user) => (dispatch) =>
     dispatch(sessionCheckingLogin())
     loginService(user)
       .then((result) => {
-        console.log(result)
         if (!result.hasOwnProperty('success')) {
           dispatch(sessionLoginError(result.message))
           reject(result.message)

@@ -2,13 +2,13 @@ import { memo } from 'react'
 
 import Layout from 'components/Layout'
 import { SectionStyled } from './styles'
-import PostsPanel from 'components/PostsPanel'
+import PostCard from 'components/PostCard'
 
 const Home = () => {
   return (
     <Layout>
       <SectionStyled>
-        <PostsPanel />
+        <PostCard />
       </SectionStyled>
     </Layout>
   )

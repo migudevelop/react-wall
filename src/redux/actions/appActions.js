@@ -18,8 +18,8 @@ export const getPosts = (page) => (dispatch) =>
   new Promise((resolve, reject) => {
     getPostsService(page)
       .then((result) => {
-        dispatch(getPostsSuccess(result))
-        console.log(result)
+        if (result.success) dispatch(getPostsSuccess(result.postsData))
+        console.log(result.postsData)
         resolve(result)
       })
       .catch((error) => {

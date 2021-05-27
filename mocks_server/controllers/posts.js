@@ -12,7 +12,16 @@ const controller = {
     // const params = req.body
     const posts = new Posts()
     const currentPosts = posts.getPost()
-    return res.status(200).send({ success: true, results: currentPosts })
+    return res.status(200).send({
+      success: true,
+      postsData: {
+        currentPage: 1,
+        limit: 10,
+        totalResults: currentPosts.length,
+        totalPages: Math.floor(currentPosts.length / 10),
+        posts: currentPosts,
+      },
+    })
   },
 }
 
