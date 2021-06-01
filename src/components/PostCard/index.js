@@ -14,10 +14,10 @@ import {
   CommentStyled,
 } from './styles'
 
-const PostCard = ({ getPosts, posts }) => {
+const PostCard = ({ isAuth, getPosts, posts }) => {
   useEffect(() => {
     getPosts()
-  }, [])
+  }, [isAuth])
 
   return (
     <>
@@ -42,9 +42,11 @@ const PostCard = ({ getPosts, posts }) => {
 PostCard.propTypes = {
   getPosts: PropTypes.func.isRequired,
   posts: PropTypes.array.isRequired,
+  isAuth: PropTypes.bool.isRequired,
 }
 
 const mapStateToProps = (state) => ({
+  isAuth: state.session.isAuth,
   posts: state.app.postsData.posts,
 })
 

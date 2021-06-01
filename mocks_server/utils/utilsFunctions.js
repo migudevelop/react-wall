@@ -1,28 +1,37 @@
 function getElementsPerPage(array, page = 1, perPage = 10) {
-  const start = (page - 1) * perPage;
-  const end = page * perPage;
+  const obj = {
+    hasMore: false,
+    limit: perPage,
+    prevPage: 1,
+    nextPage: 1,
+    lastPage: 1,
+    currentPage: 1,
+    elements: [],
+  }
+  const start = (page - 1) * perPage
+  const end = page * perPage
 
-  const elementsObtained = array.slice(start, end);
+  const elementsObtained = array.slice(start, end)
   if (elementsObtained.length === 0) {
-    return [];
+    return obj
   }
 
   if (page > 1) {
-    obj.prev = page - 1;
+    obj.prevPage = page - 1
   }
 
   if (end < array.length) {
-    obj.next = page + 1;
+    obj.nextPage = page + 1
   }
 
-  if (obj.items.length !== array.length) {
-    obj.current = page;
-    obj.first = 1;
-    obj.last = Math.ceil(array.length / perPage);
-  }
+  obj.currentPage = page
+  obj.lastPage = Math.ceil(array.length / perPage)
 
-  return obj;
+  return {
+    ...obj,
+    hasMore: page < obj.lastPage,
+    elements: [...elementsObtained],
+  }
 }
 
-module.exports = {
-  }
+module.exports = { getElementsPerPage }

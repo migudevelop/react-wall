@@ -55,7 +55,9 @@ export const userLogin = (user) => (dispatch) =>
           dispatch(sessionLoginError(result.message))
           reject(result.message)
         } else {
-          dispatch(sessionLoginSuccess(result.token))
+          dispatch(
+            sessionLoginSuccess({ token: result.token, user: result.user })
+          )
           window.sessionStorage.setItem(sessionStorageTokenKey, result.token)
           resolve(result.token)
         }

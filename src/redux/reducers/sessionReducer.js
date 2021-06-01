@@ -36,6 +36,7 @@ const sessionReducer = (state = INITIAL_STATE, action) => {
         loading: false,
         isAuth: true,
         token: payload.token,
+        user: payload.user,
       }
 
     case SESSION_LOGIN_ERROR:

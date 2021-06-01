@@ -9,17 +9,19 @@ const Posts = require('../models/posts')
 
 const controller = {
   getPosts: function (req, res) {
-    const params = req.params.user
+    const { page, limit } = req.params
     const posts = new Posts()
-    const currentPosts = posts.getPost()
+    const currentPosts = posts.getPost(page, limit)
     return res.status(200).send({
       success: true,
       postsData: {
-        currentPage: 1,
-        limit: 10,
-        totalResults: currentPosts.length,
-        totalPages: Math.floor(currentPosts.length / 10),
-        posts: currentPosts,
+        currentPage: currentPosts.currentPage,
+        limit: currentPosts.perPage,
+        totalResults: currentPosts.elements.length,
+        totalPages: currentPosts.lastPage,
+        hasMore: currentPosts.hasMore,
+        nextPage: currentPosts.nextPage,
+        posts: currentPosts.elements,
       },
     })
   },
