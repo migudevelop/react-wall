@@ -109,7 +109,10 @@ module.exports = class Posts {
     return { ...DEFAULT_MODEL, ...newPost }
   }
 
-  getPost = () => {
-    return this.posts
+  getPost = (page, limit = 10) => {
+    const rangue 
+    return this.posts.slice
   }
 }
+
+
