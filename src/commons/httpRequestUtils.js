@@ -10,7 +10,10 @@ export const getRequest = ({ endpoint = '' }) =>
     endpoint,
     config: {
       method: HTTP_REQUEST_METHODS.GET,
-      headers: DEFOULT_HEADERS,
+      headers: {
+        ...DEFOULT_HEADERS,
+        Authorization: window.sessionStorage.getItem('token'),
+      },
     },
   }).then((res) => res.json())
 
@@ -19,7 +22,10 @@ export const postRequest = ({ endpoint = '', body = {} }) =>
     endpoint,
     config: {
       method: HTTP_REQUEST_METHODS.POST,
-      headers: DEFOULT_HEADERS,
+      headers: {
+        ...DEFOULT_HEADERS,
+        Authorization: window.sessionStorage.getItem('token'),
+      },
       body: JSON.stringify(body),
     },
   }).then((res) => res.json())
@@ -29,7 +35,10 @@ export const putRequest = ({ endpoint = '', body = {} }) =>
     endpoint,
     config: {
       method: HTTP_REQUEST_METHODS.PUT,
-      headers: DEFOULT_HEADERS,
+      headers: {
+        ...DEFOULT_HEADERS,
+        Authorization: window.sessionStorage.getItem('token'),
+      },
       body: JSON.stringify(body),
     },
   }).then((res) => res.json())
@@ -39,7 +48,10 @@ export const deleteRequest = ({ endpoint = '' }) =>
     endpoint,
     config: {
       method: HTTP_REQUEST_METHODS.DELETE,
-      headers: DEFOULT_HEADERS,
+      headers: {
+        ...DEFOULT_HEADERS,
+        Authorization: window.sessionStorage.getItem('token'),
+      },
     },
   }).then((res) => res.json())
 
