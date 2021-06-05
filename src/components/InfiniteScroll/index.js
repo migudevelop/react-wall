@@ -1,34 +1,47 @@
-import { memo, useEffect, useState } from 'react'
+import { memo, useEffect, useState, useRef } from 'react'
 import PropTypes from 'prop-types'
 import { InfiniteScrollStyled } from './styles'
 
 const SCROLL_EVENT = 'scroll'
 
-const InfiniteScroll = ({ children, className, fetchMoreItems }) => {
-  const [isFetching, setIsFetching] = useState(false)
+function isBottom(ref) {
+  if (!ref.current) {
+    return false
+  }
+  return ref.current.getBoundingClientRect().bottom <= window.innerHeight
+}
+
+const InfiniteScroll = ({
+  children,
+  className,
+  isLoading,
+  loadOnMount,
+  hasMoreData,
+  fetchMoreData,
+}) => {
+  const [initialLoad, setInitialLoad] = useState(true)
+  const contentRef = useRef(null)
 
   useEffect(() => {
-    if (!isFetching) return
-    fetchMoreItems()
-  }, [isFetching])
+    if (loadOnMount && initialLoad) {
+      fetchMoreData()
+      setInitialLoad(false)
+    }
+  }, [fetchMoreData, loadOnMount, initialLoad])
 
-  useEffect(() => {
-    window.addEventListener(SCROLL_EVENT, handleScroll)
-    return () => window.removeEventListener(SCROLL_EVENT, handleScroll)
-  }, [])
-
-  function handleScroll() {
-    if (
-      window.innerHeight + document.documentElement.scrollTop !==
-      document.documentElement.offsetHeight
-    )
-      return
-    console.log('Fetch more list items!')
-    setIsFetching(true)
+  const onScroll = () => {
+    if (!isLoading && hasMoreData && isBottom(contentRef)) {
+      fetchMoreData()
+    }
   }
 
+  useEffect(() => {
+    document.addEventListener(SCROLL_EVENT, onScroll)
+    return () => document.removeEventListener(SCROLL_EVENT, onScroll)
+  }, [fetchMoreData, isLoading, hasMoreData])
+
   return (
-    <InfiniteScrollStyled className={className}>
+    <InfiniteScrollStyled className={className} ref={contentRef}>
       {children}
     </InfiniteScrollStyled>
   )
@@ -36,12 +49,11 @@ const InfiniteScroll = ({ children, className, fetchMoreItems }) => {
 
 InfiniteScroll.propTypes = {
   children: PropTypes.node.isRequired,
-  fetchMoreItems: PropTypes.func,
+  isLoading: PropTypes.bool,
+  loadOnMount: PropTypes.bool,
+  hasMoreData: PropTypes.bool.isRequired,
+  fetchMoreData: PropTypes.func.isRequired,
   className: PropTypes.string,
-}
-
-InfiniteScroll.defaultProps = {
-  onClick: null,
 }
 
 export default memo(InfiniteScroll)

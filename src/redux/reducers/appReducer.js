@@ -1,14 +1,18 @@
 import {
   TOOGLE_OPEN_NAVBAR,
   POSTS_FETCH_GET_POSTS_SUCCESS,
+  TOGGLE_LOADING,
 } from 'redux/types/appTypes'
 
 export const INITIAL_STATE = {
+  isLoading: false,
   navBar: {
     isOpen: false,
   },
   postsData: {
+    hasMore: false,
     currentPage: 1,
+    nextPage: 1,
     limit: 10,
     totalResults: 0,
     totalPages: 0,
@@ -31,7 +35,14 @@ const appReducer = (state = INITIAL_STATE, action) => {
         ...state,
         postsData: {
           ...payload,
+          posts: [...state.postsData.posts, ...payload.posts],
         },
+      }
+
+    case TOGGLE_LOADING:
+      return {
+        ...state,
+        isLoading: !state.isLoading,
       }
 
     default:

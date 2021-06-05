@@ -2,11 +2,17 @@ import { getPostsService } from 'redux/services/postsService'
 import {
   TOOGLE_OPEN_NAVBAR,
   POSTS_FETCH_GET_POSTS_SUCCESS,
+  TOGGLE_LOADING,
 } from 'redux/types/appTypes'
 
 export const toogleOpenNavbar = () => (dispatch) =>
   dispatch({
     type: TOOGLE_OPEN_NAVBAR,
+  })
+
+export const toogleLoading = () => (dispatch) =>
+  dispatch({
+    type: TOGGLE_LOADING,
   })
 
 export const getPostsSuccess = (postsData) => ({
