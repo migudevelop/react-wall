@@ -8,7 +8,8 @@ module.exports = class Users {
 
   login = ({ email = '', password = '' }) => {
     const userLogin = this.users.find(
-      (data) => data.email === email && data.login.password === password
+      (data) =>
+        data.email === email && data.login && data.login.password === password
     )
     return userLogin
   }

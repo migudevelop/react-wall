@@ -3,9 +3,10 @@ const fs = require('fs')
 
 const CONFIG_DATA = {
   UTF8: 'utf8',
-  DEFAULT_BASE_FOLDER: path.resolve(path.join('', 'JsonFiles')),
+  DEFAULT_BASE_FOLDER: path.resolve(path.join('', 'data')),
   DEFAULT_FILES: {
-    TASKS_FILE: 'tasks.json',
+    USERS: 'users.json',
+    POSTS: 'posts.json',
   },
 }
 
@@ -13,7 +14,7 @@ class FileJson {
   constructor(file, baseFolder) {
     this.baseFolder = baseFolder || CONFIG_DATA.DEFAULT_BASE_FOLDER
     this.existAndCreateFolder(this.baseFolder)
-    this.file = file || CONFIG_DATA.DEFAULT_FILES.TASKS_FILE
+    this.file = file || CONFIG_DATA.DEFAULT_FILES.USERS
     this.fileRoute = path.resolve(`${this.baseFolder}\\${this.file}`)
   }
 
@@ -69,16 +70,6 @@ class FileJson {
   }
 
   readDir = (dir) => fs.readdirSync(path.resolve(dir || this.baseFolder))
-
-  getMonthTasks = (dir) => {
-    const dirPath = this.readDir(dir)
-    let monthTasks = []
-    dirPath.map((item) => {
-      const itemTasks = this.readFile(path.join(this.baseFolder, item))
-      monthTasks = [...monthTasks, ...itemTasks]
-    })
-    return monthTasks
-  }
 }
 
 export default FileJson

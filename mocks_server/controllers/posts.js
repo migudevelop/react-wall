@@ -9,9 +9,9 @@ const Posts = require('../models/posts')
 
 const controller = {
   getPosts: function (req, res) {
-    const { page, limit } = req.params
+    const { page, limit } = req.query
     const posts = new Posts()
-    const currentPosts = posts.getPost(page, limit)
+    const currentPosts = posts.getPost(parseInt(page, 10), parseInt(limit, 10))
     return res.status(200).send({
       success: true,
       postsData: {
