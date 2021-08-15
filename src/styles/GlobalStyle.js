@@ -5,6 +5,7 @@ const GlobalStyle = createGlobalStyle`
 	body {
 		margin: 0;
 		background: ${({ theme }) => theme.backgroundColor};
+		overflow: hidden;
 	}
 `
 

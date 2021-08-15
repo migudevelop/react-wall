@@ -36,8 +36,8 @@ const InfiniteScroll = ({
   }
 
   useEffect(() => {
-    document.addEventListener(SCROLL_EVENT, onScroll)
-    return () => document.removeEventListener(SCROLL_EVENT, onScroll)
+    contentRef.current.addEventListener(SCROLL_EVENT, onScroll)
+    return () => contentRef.current.removeEventListener(SCROLL_EVENT, onScroll)
   }, [fetchMoreData, isLoading, hasMoreData])
 
   return (

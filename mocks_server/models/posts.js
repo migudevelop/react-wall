@@ -18,10 +18,10 @@ module.exports = class Posts {
     this.posts = [...postsData]
   }
 
-  addPost = (newPost) => {
+  addPost(newPost) {
     return { ...DEFAULT_MODEL, ...newPost }
   }
-  getPost = (page = 1, limit = 10) => {
+  getPost(page = 1, limit = 10) {
     return getElementsPerPage(this.posts, page, limit)
   }
 }

@@ -6,7 +6,7 @@ module.exports = class Users {
     this.users = [...usersData.results]
   }
 
-  login = ({ email = '', password = '' }) => {
+  login({ email = '', password = '' }) {
     const userLogin = this.users.find(
       (data) =>
         data.email === email && data.login && data.login.password === password
@@ -14,7 +14,7 @@ module.exports = class Users {
     return userLogin
   }
 
-  getUserLoginObject = (userLogin) => {
+  getUserLoginObject(userLogin) {
     delete userLogin.login
     return { user: userLogin, token: jwt.tokenGeneration(userLogin) }
   }
