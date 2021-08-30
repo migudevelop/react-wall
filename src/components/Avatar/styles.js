@@ -16,6 +16,7 @@ export const WrapperStyled = styled.div`
 export const AvatarStyled = styled.img`
   border-radius: 50%;
   object-fit: cover;
+  box-shadow: 0 0 0.5rem black;
 
   ${(props) => getAvatarSize(props.size, 'mobile')}
 

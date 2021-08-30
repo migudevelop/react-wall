@@ -9,6 +9,8 @@ export const DARK_THEME = {
   themeSwitchBg: '#ffffff',
   themeSwitchCircleBg: '#252a48',
   backgorundContainers: '#ffffff',
+  themeScrollbarBg: '#ffffff',
+  themeScrollbarThumb: '#ffb156',
 }
 
 export const LIGHT_THEME = {
@@ -24,4 +26,6 @@ export const LIGHT_THEME = {
   themeSwitchBg: '#1e4e5f',
   themeSwitchCircleBg: '#ffffff',
   backgorundContainers: '#ffffff',
+  themeScrollbarBg: '#ffb156',
+  themeScrollbarThumb: '#ffffff',
 }

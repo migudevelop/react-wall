@@ -25,7 +25,6 @@ export const getPosts = (page) => (dispatch) =>
     getPostsService(page)
       .then((result) => {
         if (result.success) dispatch(getPostsSuccess(result.postsData))
-        console.log(result.postsData)
         resolve(result)
       })
       .catch((error) => {

@@ -8,7 +8,10 @@ function isBottom(ref) {
   if (!ref.current) {
     return false
   }
-  return ref.current.getBoundingClientRect().bottom <= window.innerHeight
+  return (
+    ref.current.scrollHeight - ref.current.scrollTop <=
+    ref.current.clientHeight + 50
+  )
 }
 
 const InfiniteScroll = ({
@@ -37,7 +40,9 @@ const InfiniteScroll = ({
 
   useEffect(() => {
     contentRef.current.addEventListener(SCROLL_EVENT, onScroll)
-    return () => contentRef.current.removeEventListener(SCROLL_EVENT, onScroll)
+    return () => {
+      contentRef?.current?.removeEventListener(SCROLL_EVENT, onScroll)
+    }
   }, [fetchMoreData, isLoading, hasMoreData])
 
   return (
