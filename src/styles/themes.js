@@ -1,16 +1,19 @@
 export const DARK_THEME = {
   name: 'dark',
-  primaryColor: '#5abef9',
-  backgroundColor: '#252a48',
+
+  backgroundColor: '#262626',
+  primaryColor: '#a67338',
+  primaryTextColor: '#ffffff',
   textColor: '#ffffff',
-  buttonTextColor: '#ffffff',
-  displayBgColor: '#f1f3ff',
-  displayTextColor: '#252a48',
+  secundaryTextColor: '#ffffff',
+  navBarBgColor: '#515151',
+  navBarTextColor: '#c9c9c9',
+  navBarActiveTextColor: '#ffffff',
   themeSwitchBg: '#ffffff',
-  themeSwitchCircleBg: '#252a48',
-  backgorundContainers: '#ffffff',
-  themeScrollbarBg: '#ffffff',
-  themeScrollbarThumb: '#ffb156',
+  themeSwitchCircleBg: '#515151',
+  backgorundContainers: '#515151',
+  themeScrollbarBg: '#a67338',
+  themeScrollbarThumb: '#e6e6e6',
 }
 
 export const LIGHT_THEME = {
@@ -23,7 +26,7 @@ export const LIGHT_THEME = {
   navBarBgColor: '#ffffff',
   navBarTextColor: '#979fad',
   navBarActiveTextColor: '#1e4e5f',
-  themeSwitchBg: '#1e4e5f',
+  themeSwitchBg: '#515151',
   themeSwitchCircleBg: '#ffffff',
   backgorundContainers: '#ffffff',
   themeScrollbarBg: '#ffb156',

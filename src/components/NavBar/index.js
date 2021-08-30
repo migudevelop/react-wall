@@ -6,14 +6,7 @@ import PropTypes from 'prop-types'
 import { ROUTES_LINKS } from 'router/constants'
 import { toogleOpenNavbar } from 'redux/actions/appActions'
 import { toogleTheme } from 'redux/actions/stylesActions'
-import {
-  NavStyled,
-  Logo,
-  NavLink,
-  MobileIcon,
-  NavMenu,
-  NavRightMenu,
-} from './styles'
+import { NavStyled, NavLink, MobileIcon, NavRightMenu } from './styles'
 import {
   FaBars,
   FaHome,
@@ -22,6 +15,7 @@ import {
   FaSignInAlt,
   FaUserPlus,
 } from 'react-icons/fa'
+import ThemeSwitchButton from 'components/ThemeSwitchButton'
 
 const NavBar = ({ isAuth, canGoBack, toogleOpenNavbar, toogleTheme }) => {
   // const history = useHistory()
@@ -30,15 +24,13 @@ const NavBar = ({ isAuth, canGoBack, toogleOpenNavbar, toogleTheme }) => {
 
   return (
     <NavStyled>
-      <NavLink to={ROUTES_LINKS.HOME}>
-        <Logo />
-      </NavLink>
+      <ThemeSwitchButton />
       <MobileIcon onClick={toogleOpenNavbar}>
         <FaBars />
       </MobileIcon>
-      {isAuth && (
-        <>
-          <NavMenu>
+      <NavRightMenu>
+        {isAuth && (
+          <>
             <NavLink to={ROUTES_LINKS.HOME} activeStyle={{}}>
               <FaHome />
               Home
@@ -47,15 +39,11 @@ const NavBar = ({ isAuth, canGoBack, toogleOpenNavbar, toogleTheme }) => {
               <FaUser />
               User
             </NavLink>
-          </NavMenu>
-        </>
-      )}
-      <NavRightMenu>
-        {isAuth && (
-          <NavLink to={ROUTES_LINKS.HOME} activeStyle={{}}>
-            <FaSignOutAlt />
-            Logout
-          </NavLink>
+            <NavLink to={ROUTES_LINKS.LOGIN} activeStyle={{}}>
+              <FaSignOutAlt />
+              Logout
+            </NavLink>
+          </>
         )}
         {!isAuth && (
           <>

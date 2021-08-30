@@ -20,7 +20,7 @@ export const ToggleItemStyled = styled.label`
   height: 2em;
   display: inline-block;
   border-radius: 50px;
-  margin: 40px;
+  margin: 1rem;
   position: relative;
   transition: all 0.3s ease;
   transform-origin: 20% center;

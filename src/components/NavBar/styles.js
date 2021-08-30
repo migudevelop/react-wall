@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 import { NavLink as Link } from 'react-router-dom'
-import { FaMendeley } from 'react-icons/fa'
 import { MEDIAQUERIES } from 'styles'
 
 export const NavStyled = styled.nav`
@@ -51,13 +50,6 @@ export const MobileIcon = styled.div`
   ${MEDIAQUERIES.tablet} {
     display: none;
   }
-`
-
-export const Logo = styled(FaMendeley)`
-  color: ${({ theme }) => theme.navBarTextColor};
-  transform: rotate(180deg);
-  font-size: 2.5rem;
-  cursor: pointer;
 `
 
 export const NavMenu = styled.div`
