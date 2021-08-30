@@ -9,8 +9,8 @@ import {
   CircleItemStyled,
 } from './styles'
 
-const ThemeSwitchButton = ({ toogleTheme }) => {
-  const [isChecked, setIsChecked] = useState(false)
+const ThemeSwitchButton = ({ toogleTheme, themeState }) => {
+  const [isChecked, setIsChecked] = useState(!(themeState === 'light'))
   const handleChange = (e) => {
     toogleTheme()
     setIsChecked(e.target.checked)
@@ -34,8 +34,13 @@ const ThemeSwitchButton = ({ toogleTheme }) => {
 }
 
 ThemeSwitchButton.propTypes = {
+  themeState: PropTypes.string.isRequired,
   toogleTheme: PropTypes.func.isRequired,
 }
+
+const mapStateToProps = (state) => ({
+  themeState: state.styles.theme.name,
+})
 
 const mapDispatchToProps = (dispatch) => {
   return {
@@ -43,4 +48,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(null, mapDispatchToProps)(ThemeSwitchButton)
+export default connect(mapStateToProps, mapDispatchToProps)(ThemeSwitchButton)

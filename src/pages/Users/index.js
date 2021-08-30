@@ -1,5 +1,12 @@
+import { memo } from 'react'
+import Layout from 'components/Layout'
+import { SectionStyled } from './styles'
 const Users = () => {
-  return <h1>Users Page</h1>
+  return (
+    <Layout>
+      <SectionStyled>User page</SectionStyled>
+    </Layout>
+  )
 }
 
-export default Users
+export default memo(Users)

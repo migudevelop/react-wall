@@ -49,7 +49,7 @@ export const CircleItemStyled = styled.span`
   top: 4.5px;
   text-align: center;
   background: ${({ theme }) => theme.themeSwitchCircleBg};
-  ${({ isChecked, theme }) => CircleChecked(isChecked, theme)}
+  ${({ isChecked }) => CircleChecked(isChecked)}
 `
 
 const CircleChecked = (isChecked) =>

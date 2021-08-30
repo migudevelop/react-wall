@@ -1,6 +1,5 @@
 export const DARK_THEME = {
   name: 'dark',
-
   backgroundColor: '#262626',
   primaryColor: '#a67338',
   primaryTextColor: '#ffffff',
