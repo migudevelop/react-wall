@@ -37,11 +37,11 @@ const SideBar = ({
         <SideBarMenu>
           {isAuth && (
             <>
-              <SideBarLink to={ROUTES_LINKS.HOME}>
+              <SideBarLink to={ROUTES_LINKS.HOME} onClick={toogleOpenNavbar}>
                 <FaHome />
                 Home
               </SideBarLink>
-              <SideBarLink to={ROUTES_LINKS.USER}>
+              <SideBarLink to={ROUTES_LINKS.USER} onClick={toogleOpenNavbar}>
                 <FaUser />
                 User
               </SideBarLink>

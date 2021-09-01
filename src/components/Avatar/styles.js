@@ -11,12 +11,14 @@ export const WrapperStyled = styled.div`
   align-items: center;
   justify-content: center;
   margin: 0 10px;
+  user-select: none;
 `
 
 export const AvatarStyled = styled.img`
   border-radius: 50%;
   object-fit: cover;
-  box-shadow: 0 0 0.5rem black;
+  ${({ hideShadow }) => !hideShadow && 'box-shadow: 0 0 0.5rem black;'}
+  ${({ theme }) => theme.name === 'dark' && ' filter: brightness(95%);'};
 
   ${(props) => getAvatarSize(props.size, 'mobile')}
 
