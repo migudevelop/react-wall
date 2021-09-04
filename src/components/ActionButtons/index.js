@@ -1,19 +1,30 @@
 import PropTypes from 'prop-types'
 import {
-  ActionsWrapper,
+  ActionsRigthWrapper,
+  ActionsLeftWrapper,
   ActionButtonStyled,
   EditStyled,
   CancelStyled,
+  SaveStyled,
 } from './styles'
 
 const ActionButtons = ({ editing, onEdit }) => (
-  <ActionsWrapper>
-    {onEdit && (
-      <ActionButtonStyled onClick={onEdit}>
-        {editing ? <CancelStyled /> : <EditStyled />}
-      </ActionButtonStyled>
-    )}
-  </ActionsWrapper>
+  <>
+    <ActionsLeftWrapper>
+      {onEdit && editing && (
+        <ActionButtonStyled onClick={onEdit}>
+          {<SaveStyled />}
+        </ActionButtonStyled>
+      )}
+    </ActionsLeftWrapper>
+    <ActionsRigthWrapper>
+      {onEdit && (
+        <ActionButtonStyled onClick={onEdit}>
+          {editing ? <CancelStyled /> : <EditStyled />}
+        </ActionButtonStyled>
+      )}
+    </ActionsRigthWrapper>
+  </>
 )
 
 ActionButtons.propTypes = {

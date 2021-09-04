@@ -71,9 +71,8 @@ export const userLogin = (user) => (dispatch) =>
   })
 
 export const logout = () => (dispatch) => {
-  // dispatch(resetUsers())
-  dispatch(sessionLogOut())
   window.sessionStorage.removeItem(sessionStorageTokenKey)
+  dispatch(sessionLogOut())
 }
 
 export const userRegister = (user) => (dispatch) =>

@@ -1,12 +1,19 @@
 import styled from 'styled-components'
 import Button from 'components/Button'
-import { FaRegEdit, FaTimes } from 'react-icons/fa'
+import { FaRegEdit, FaTimes, FaRegSave } from 'react-icons/fa'
 
-export const ActionsWrapper = styled.div`
+export const ActionsRigthWrapper = styled.div`
   position: absolute;
   z-index: 1;
   top: 10px;
   right: 10px;
+`
+
+export const ActionsLeftWrapper = styled.div`
+  position: absolute;
+  z-index: 1;
+  top: 10px;
+  left: 10px;
 `
 
 export const ActionButtonStyled = styled(Button)`
@@ -16,6 +23,13 @@ export const ActionButtonStyled = styled(Button)`
 `
 
 export const EditStyled = styled(FaRegEdit)`
+  min-width: 28px;
+  min-height: 28px;
+  color: #58b8ff;
+  margin: 0 0.5em;
+`
+
+export const SaveStyled = styled(FaRegSave)`
   min-width: 28px;
   min-height: 28px;
   color: #58b8ff;

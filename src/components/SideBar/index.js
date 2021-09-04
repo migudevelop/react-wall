@@ -5,6 +5,7 @@ import { ROUTES_LINKS } from 'router/constants'
 
 import { toogleOpenNavbar } from 'redux/actions/appActions'
 import { toogleTheme } from 'redux/actions/stylesActions'
+import { logout } from 'redux/actions/sessionActions'
 import {
   SideBarContainerStyled,
   CloseIcon,
@@ -27,6 +28,7 @@ const SideBar = ({
   canGoBack,
   toogleOpenNavbar,
   toogleTheme,
+  logout,
 }) => {
   return (
     <SideBarContainerStyled isOpen={isOpen}>
@@ -45,7 +47,7 @@ const SideBar = ({
                 <FaUser />
                 User
               </SideBarLink>
-              <SideBarLink to={ROUTES_LINKS.USER}>
+              <SideBarLink to={ROUTES_LINKS.LOGOUT} onClick={logout}>
                 <FaSignOutAlt />
                 Logout
               </SideBarLink>
@@ -72,7 +74,7 @@ const SideBar = ({
 SideBar.propTypes = {
   isAuth: PropTypes.bool.isRequired,
   isOpen: PropTypes.bool.isRequired,
-  // logout: PropTypes.func.isRequired,
+  logout: PropTypes.func,
   canGoBack: PropTypes.bool,
   toogleTheme: PropTypes.func.isRequired,
   toogleOpenNavbar: PropTypes.func.isRequired,
@@ -90,6 +92,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   toogleOpenNavbar: () => dispatch(toogleOpenNavbar()),
   toogleTheme: () => dispatch(toogleTheme()),
+  logout: () => dispatch(logout()),
 })
 
 const SideBarConnected = connect(mapStateToProps, mapDispatchToProps)(SideBar)

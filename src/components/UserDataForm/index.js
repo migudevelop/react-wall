@@ -14,7 +14,7 @@ const UserDataForm = ({ user, editing }) => {
   return (
     <Wrapper>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <CustomColumns tabletNumCol={3} desktopNumCol={3}>
+        <CustomColumns tabletNumCol={2} desktopNumCol={3}>
           <EditField
             label="First Name"
             name="first"

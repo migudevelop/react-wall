@@ -33,7 +33,6 @@ export const ValueStyled = styled.div`
 `
 
 export const InputStyled = styled.input`
-  font-family: Rajdhani;
   color: ${({ theme }) => theme.textColor};
   padding: 10px 0;
   border: none;

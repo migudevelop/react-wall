@@ -6,6 +6,7 @@ import PropTypes from 'prop-types'
 import { ROUTES_LINKS } from 'router/constants'
 import { toogleOpenNavbar } from 'redux/actions/appActions'
 import { toogleTheme } from 'redux/actions/stylesActions'
+import { logout } from 'redux/actions/sessionActions'
 import { NavStyled, NavLink, MobileIcon, NavRightMenu } from './styles'
 import {
   FaBars,
@@ -17,7 +18,13 @@ import {
 } from 'react-icons/fa'
 import ThemeSwitchButton from 'components/ThemeSwitchButton'
 
-const NavBar = ({ isAuth, canGoBack, toogleOpenNavbar, toogleTheme }) => {
+const NavBar = ({
+  isAuth,
+  canGoBack,
+  toogleOpenNavbar,
+  toogleTheme,
+  logout,
+}) => {
   // const history = useHistory()
 
   // const handleBackClick = () => history.goBack()
@@ -39,7 +46,7 @@ const NavBar = ({ isAuth, canGoBack, toogleOpenNavbar, toogleTheme }) => {
               <FaUser />
               User
             </NavLink>
-            <NavLink to={ROUTES_LINKS.LOGIN} activeStyle={{}}>
+            <NavLink to={ROUTES_LINKS.LOGOUT} activeStyle={{}} onClick={logout}>
               <FaSignOutAlt />
               Logout
             </NavLink>
@@ -64,7 +71,7 @@ const NavBar = ({ isAuth, canGoBack, toogleOpenNavbar, toogleTheme }) => {
 
 NavBar.propTypes = {
   isAuth: PropTypes.bool.isRequired,
-  // logout: PropTypes.func.isRequired,
+  logout: PropTypes.func,
   canGoBack: PropTypes.bool,
   toogleTheme: PropTypes.func.isRequired,
   toogleOpenNavbar: PropTypes.func.isRequired,
@@ -81,6 +88,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   toogleOpenNavbar: () => dispatch(toogleOpenNavbar()),
   toogleTheme: () => dispatch(toogleTheme()),
+  logout: () => dispatch(logout()),
 })
 
 const NavBarConnected = connect(mapStateToProps, mapDispatchToProps)(NavBar)
